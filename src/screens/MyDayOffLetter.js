@@ -59,8 +59,8 @@ function MyDayOffLetter({navigation}) {
             isExisted: false,
             isArchived: false,
             isApproved: false,
-            fromDateTime: dayOffRange.startDate.toLocaleDateString(),
-            toDateTime: dayOffRange.endDate.toLocaleDateString(),
+            fromDateTime: Moment(new Date(dayOffRange.startDate)).format("YYYY-MM-DD"),
+            toDateTime: Moment(new Date(dayOffRange.endDate)).format("YYYY-MM-DD"),
             dayOffCounting: Moment(dayOffRange.endDate.toLocaleDateString()).diff(dayOffRange.startDate.toLocaleDateString(), "days"),
             createdOn: new Date(),
             updatedOn: new Date(),
@@ -93,7 +93,7 @@ function MyDayOffLetter({navigation}) {
             <View style={{flexDirection: "row", marginTop: 10, alignItems: "center"}}>
                 <MaterialCommunityIcons name={"clock"} size={20} color={"black"}/>
                 <Text style={{marginLeft: 5, fontSize: 11}}
-                      category={"s1"}>{Moment(item.fromDateTime).format('MMMM/DD/YYYY')} - {Moment(item.toDateTime).format('MMMM/DD/YYYY')}</Text>
+                      category={"s1"}>{Moment(item.fromDateTime).format('MM/DD/YYYY')} - {Moment(item.toDateTime).format('MM/DD/YYYY')}</Text>
             </View>
             <View style={{flexDirection: "row", flex: 1, alignItems: "center", marginTop: 10}}>
                 <Text category={"c2"} appearance={"hint"}>Reason:</Text>
